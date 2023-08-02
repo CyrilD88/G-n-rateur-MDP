@@ -25,6 +25,18 @@ function generatePassword() {
   }
 
   passwordOutput.value = password;
+
+  //   SI on veut sélectionner et copier directement le mdp
+  passwordOutput.select();
+  document.execCommand("copy");
+
+  //   Fonction setTimeout pour prévenir l'utilisation que le mot de passe est copié et changer ce qu'il y a dans le bouton
+
+  generateButton.textContent = "Copié !";
+
+  setTimeout(() => {
+    generateButton.textContent = "Générer un nouveau mot de passe";
+  }, 900);
 }
 
 generateButton.addEventListener("click", generatePassword);
